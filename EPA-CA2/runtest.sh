@@ -10,11 +10,14 @@ echo  "Invalid number, please enter a number between $minUsers and $maxUsers"
 else
 echo "Testing $1 users for $testduration seconds..."
 
-./loadtest $1 &		#Run loadtest in background
+for i in {1..5}
+do
+./loadtest $i &		#Run loadtest in background
 
-mpstat $testduration 1 -o JSON
+mpstat $testduration 1 -o JSON | jq '.sysstat.hosts[0].statistics[0]."cpu-load"[0].idle' #Collect 1 sample for test duration (JSON format)
 
-pkill loadtest		#Kill loadtest process after running for testduration
+pkill loadtest		#Kill loadtest process after running for test duration
 
-
+echo "DONE $i"
+done
 fi

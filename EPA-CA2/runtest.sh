@@ -7,7 +7,9 @@ min_users=1
 max_users=50
 test_duration=5		#Length of time (seconds) to run loadtest for
 
-if [ $1 -lt $min_users ] || [ $1 -gt $max_users ]; then	#Ensure valid number of users
+if [ ! -f loadtest ]; then	#Check loadtest file exists before running
+echo "Loadtest (executable) not found, please compile loadtest.C"
+elif [ $1 -lt $min_users ] || [ $1 -gt $max_users ]; then	#Ensure valid number of users
 echo  "Invalid number, please enter a number between $min_users and $max_users"
 else
 echo "Testing $1 users for $test_duration seconds..."

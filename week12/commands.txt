@@ -1,0 +1,14 @@
+  294  docker build -f firstcontainer .
+  295  docker build -t firstcontainer .
+  296  docker images
+  297  ls
+  298  cat requirements.txt 
+  299  docker images
+  300  docker run -p 4000:80 firstcontainer
+  301  ls
+  302  nano Dockerfile 
+  303  ls /lib64
+  304  nano Dockerfile 
+  305  ls /lib64
+  306  history
+

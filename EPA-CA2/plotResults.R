@@ -1,14 +1,14 @@
 # Read in data from tab delimited results.dat file
 mydata <-
   read.table(
-    "C:/Users/jadom_000/Desktop/Enterprise Performance Architecture/results.dat",
+    "H:/Desktop/Enterprise Performance Architecture/results.dat",
     sep = "\t",
     header = TRUE
   )
 
 # Create new values based on performance laws
 
-# Subtract idle time % from 100 to get Ui
+# Subtract idle time % from 100 to get Ui as a percentage
 utilisation <- (100 - mydata$idle)
 
 # Divide Ui by 100 to get percentage value
